@@ -25,6 +25,7 @@ functions:
       - http:
           path: /todos
           method: get
+          cors: true
   fetchTodo:
     handler: src/fetchTodo.handler
     events:
