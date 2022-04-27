@@ -5,15 +5,19 @@ const addTodo = async (event) => {
   
   const dynamodb=new AWS.DynamoDB.DocumentClient();
 
-  const { todo } = JSON.parse(event.body);
+  const todoname = (JSON.parse(event.body)).todoname;
+  const tododesc = (JSON.parse(event.body)).tododesc;
+  const todocategory = (JSON.parse(event.body)).todocategory;
   const createdAt=new Date().toISOString();
+
   const id=v4();
-  
   const newTodo={
     id,
-    todo,
+    todoname,
+    tododesc,
+    todocategory,
     createdAt,
-    completed:false
+    completed:'pending'
   }  
 
   await dynamodb.put({
