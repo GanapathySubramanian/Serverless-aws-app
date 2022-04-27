@@ -5,7 +5,7 @@ const updateTodo = async (event) => {
   
   const dynamodb=new AWS.DynamoDB.DocumentClient();
 
-  const { completed } = JSON.parse(event.body);  
+  const { completed} = JSON.parse(event.body);  
   const {id} =event.pathParameters
 
 
@@ -24,6 +24,9 @@ const updateTodo = async (event) => {
     body: JSON.stringify({
         msg: "Todo Updated successfully"
     }),
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
   };
 
 

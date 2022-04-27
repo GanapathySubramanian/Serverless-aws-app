@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+nav{
+    background-color: aliceblue;
+}
+nav a{
+    float: left;
+    color: #fca71e;
+}
+/* .nav-item a{
+    color: #fca71e;
+} */
+.navbar-nav {
+    margin-left: auto;
+}
+.main-content{
+    margin-top: 50px;
+}
+
+.navbrand{
+    color: #fca71e;
+    font-weight: bold;
+}
+
+.totalcount{
+    color: #0275d8;
+    font-weight: bold;
+}
+.pendingcount{
+    color: #d9534f;
+    font-weight: bold;
+}
+.completedcount{
+    color: #5cb85c;
+    font-weight: bold;
+}
+
+.name{
+    margin: 10px;
+   display: flex;
+   justify-content: space-between;
+}
+.name p{
+    color: #fca71e;
+    font-size: 20px;
+}
+
+.logout{
+    color: #fca71e;
+    text-decoration: none;
+}

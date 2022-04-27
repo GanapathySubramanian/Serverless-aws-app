@@ -1,0 +1,43 @@
+
+<div class="box" id="heading">
+    <h1>{{category | texttransform:'Uppercase'}}</h1>
+    <!-- <span>TOTAL :<span class="totalcount">{{total}}</span></span>
+    <span>PENDING :<span class="pendingcount">{{pending}}</span></span>
+    <span>COMPLETED :<span class="completedcount">{{completed}}</span></span> -->
+</div>
+
+<div class="list-section">
+
+    <div class="pending">
+        <h1>TODO LIST</h1>
+        <div *ngFor="let todo of list;let i=index;">
+            <div *ngIf="todo.taskCategory==category">
+                <div *ngIf="todo.completed=='pending'">
+                    <div>
+                        <input type="checkbox" name="checkbox" id="checkbox" (click)="toCompleted(todo.id)">
+                        <span id="{{i}}" class="taskName" placement="top" ngbTooltip="{{todo.taskDescription}}">{{todo.taskName | texttransform:'Titlecase'}}</span>
+                    </div>
+                    <span id="{{i}}" class="date"> created at : {{todo.createdAt | date:'short'}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="completed">
+        <h1>COMPLETED LIST</h1>
+        <div *ngFor="let completed of list;let i=index;">
+            <div *ngIf="completed.taskCategory==category">
+            <div  *ngIf="completed.completed=='completed'">
+                <span class="d-flex">
+                    <span id="{{i}}" class="line" placement="top" ngbTooltip="{{completed.taskDescription}}">{{completed.taskName | texttransform:'Titlecase'}}</span>
+                    <span class="d">
+                        <button class="success" (click)="topending(completed.id)">Redo</button>
+                        <button class="danger" (click)="remove(completed.id)">Remove</button>
+                    </span>
+                </span>
+                <span id="{{i}}" class="c-date" > created at : {{completed.createdAt | date:'short'}}</span>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

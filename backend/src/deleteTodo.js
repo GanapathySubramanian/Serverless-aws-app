@@ -19,6 +19,9 @@ const deleteTodo = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify('Record deleted successfully!'),
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
   };
 
 

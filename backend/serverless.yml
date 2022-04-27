@@ -19,6 +19,7 @@ functions:
       - http:
           path: /
           method: post
+          cors: true
   fetchTodos:
     handler: src/fetchTodos.handler
     events:
@@ -32,18 +33,21 @@ functions:
       - http:
           path: /todo/{id}
           method: get
+          cors: true
   updateTodo:
     handler: src/updateTodo.handler
     events:
       - http:
           path: /todo/{id}
           method: put
+          cors: true
   deleteTodo:
     handler: src/deleteTodo.handler
     events:
       - http:
           path: /todo/{id}
           method: delete
+          cors: true
 
 
 resources:

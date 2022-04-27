@@ -1,0 +1,180 @@
+.box {
+    max-width: 400px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+    
+  }
+  
+  #heading {
+    background-color: #fca71e;
+    text-align: center;
+  } 
+  .box span{
+      text-align: center;
+      display: inline;
+      margin: 5px;
+      font-size: 20px;
+  }
+
+  .totalcount{
+      color: #0275d8;
+      font-weight: bold;
+  }
+  .pendingcount{
+      color: #d9534f;
+      font-weight: bold;
+  }
+  .completedcount{
+      color: #5cb85c;
+      font-weight: bold;
+  }
+
+
+.list-section{
+  width: 60%;
+  margin: 0 auto;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  .list-section{
+    /* width: 80%; */
+    margin: 0 auto;
+    margin-left: 230px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .list-section{
+    /* width: ; */
+    margin: 0 auto;
+    margin-left: 30px;
+  }
+}
+
+
+
+.pending{
+  float: left;
+  width: 400px;
+  /* height: auto; */
+  margin: 10px;
+  background-color: white;
+}
+.pending h1{
+  text-align: center;
+  color: #fca71e;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px;
+}
+.pending div{
+  color: #fca71e;
+  /* margin: 15px; */
+}
+
+.line{
+  text-decoration: line-through;
+  text-decoration-color: #A683E3;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+}
+
+.pending div {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+
+
+
+.completed{
+  float: left;
+  width: 400px;
+  margin: 10px;
+  background-color: white;
+}
+.completed h1{
+  text-align: center;
+  color: #fca71e;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px;
+}
+.completed div span{
+  /* color: #fca71e; */
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+.completed div {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+
+.d-flex{
+display: flex;
+justify-content:space-between;
+}
+
+.d-flex .d{
+display: flex;
+margin-right: 5px;
+justify-content:space-between;
+}
+
+
+.completed div {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}
+
+.danger{
+  background-color: #d9534f;
+  color: #fff;
+  border: 1px solid #d9534f;
+  border-radius: 3px;
+  margin: 5px;
+  width: auto;
+  height: 30px;
+  /* padding: 5px; */
+}
+
+.success{
+  background-color: #5cb85c;
+  color: #fff;
+  border: 1px solid #5cb85c;
+  border-radius: 3px;
+  margin: 5px;
+  width: auto;
+  height: 30px;
+  /* padding: 5px; */
+}
+
+
+.c-date{
+  margin-right: 14px;
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.date{
+  display: block;
+  font-size: 12px;
+  float:right;
+  margin-right: 10px;
+  margin-top: -35px;
+}

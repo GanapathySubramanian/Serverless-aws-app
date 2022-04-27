@@ -1,0 +1,15 @@
+<div class="box" id="heading">
+    <h1>ADD A NEW TASK</h1>
+</div>
+<div class="box">
+    <form class="todoForm" (onsubmit)="addTask()" autocomplete="off">
+      <input type="text" name="taskName" placeholder="Task Name" [(ngModel)]="taskName">
+      <input type="text" name="taskDesc"placeholder="Task Description" [(ngModel)]="taskDesc">
+      <select class="category" name="taskCat" [(ngModel)]="taskCat">
+         <option value="" disabled selected hidden>Select the Category</option>
+          <option *ngFor="let c of category"  [value]="c" >{{c}}</option>
+      </select>
+      <button type="button" (click)="addTask()">Add Task</button>
+    </form>
+</div>
+
