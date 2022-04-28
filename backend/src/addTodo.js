@@ -11,6 +11,7 @@ const addTodo = async (event) => {
   const createdAt=new Date().toISOString();
 
   const id=v4();
+  console.log(id)
   const newTodo={
     id,
     taskName,

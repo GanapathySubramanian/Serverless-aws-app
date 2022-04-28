@@ -39,7 +39,7 @@ functions:
     events:
       - http:
           path: /todo/{id}
-          method: put
+          method: patch
           cors: true
   deleteTodo:
     handler: src/deleteTodo.handler
