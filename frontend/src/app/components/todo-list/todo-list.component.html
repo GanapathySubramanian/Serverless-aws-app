@@ -13,7 +13,7 @@
         <div *ngFor="let todo of list;let i=index;">
             <div *ngIf="todo.taskCategory==category">
                 <div *ngIf="todo.completed=='pending'">
-                    <div>
+                    <div class="task-title">
                         <input type="checkbox" name="checkbox" id="checkbox" (click)="toCompleted(todo.id)">
                         <span id="{{i}}" class="taskName" placement="top" ngbTooltip="{{todo.taskDescription}}">{{todo.taskName | texttransform:'Titlecase'}}</span>
                     </div>
