@@ -5,13 +5,17 @@ const addTodo = async (event) => {
 
   const TABLE_NAME = process.env.ITEMS_DYNAMODB_TABLE;
 
-  console.log(TABLE_NAME)
   const dynamodb=new AWS.DynamoDB.DocumentClient();
 
-  const taskName = (JSON.parse(event.body)).taskName;
-  const taskDescription = (JSON.parse(event.body)).taskDescription;
-  const taskCategory = (JSON.parse(event.body)).taskCategory;
+  // const taskName = JSON.parse(event.body).taskName;
+  // const taskDescription = JSON.parse(event.body).taskDescription;
+  // const taskCategory = JSON.parse(event.body).taskCategory;
   const createdAt=new Date().toISOString();
+
+
+  const taskName = event.body.taskName;
+  const taskDescription = event.body.taskDescription;
+  const taskCategory = event.body.taskCategory;
 
   const id=v4();
   console.log(id)
@@ -24,10 +28,10 @@ const addTodo = async (event) => {
     completed:'pending'
   }  
 
-  await dynamodb.put({
-    TableName:TABLE_NAME,
-    Item:newTodo
-  }).promise()
+  // await dynamodb.put({ 
+  //   TableName:TABLE_NAME,
+  //   Item:newTodo
+  // }).promise()
 
   return {
     statusCode: 200,
@@ -36,8 +40,6 @@ const addTodo = async (event) => {
       'Access-Control-Allow-Origin': '*'
     },
   };
-
-
 };
 
 module.exports={
