@@ -1,7 +1,8 @@
 const AWS=require('aws-sdk');
 
 const fetchTodo = async (event) => {
-  
+  const TABLE_NAME = process.env.ITEMS_DYNAMODB_TABLE;
+
   const dynamodb=new AWS.DynamoDB.DocumentClient();
   const {id} =event.pathParameters
 
@@ -9,7 +10,7 @@ const fetchTodo = async (event) => {
   
   try{
     const results=await dynamodb.get({
-        TableName:"TodoTable",
+        TableName:TABLE_NAME,
         Key:{id}
     }).promise()
     todo=results.Item;

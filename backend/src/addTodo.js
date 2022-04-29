@@ -2,7 +2,10 @@ const { v4 }=require('uuid');
 const AWS=require('aws-sdk');
 
 const addTodo = async (event) => {
-  
+
+  const TABLE_NAME = process.env.ITEMS_DYNAMODB_TABLE;
+
+  console.log(TABLE_NAME)
   const dynamodb=new AWS.DynamoDB.DocumentClient();
 
   const taskName = (JSON.parse(event.body)).taskName;
@@ -22,7 +25,7 @@ const addTodo = async (event) => {
   }  
 
   await dynamodb.put({
-    TableName:"TodoTable",
+    TableName:TABLE_NAME,
     Item:newTodo
   }).promise()
 

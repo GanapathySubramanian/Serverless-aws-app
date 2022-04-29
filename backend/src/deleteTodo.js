@@ -2,12 +2,14 @@ const AWS=require('aws-sdk');
 
 const deleteTodo = async (event) => {
   
+  const TABLE_NAME = process.env.ITEMS_DYNAMODB_TABLE;
+
   const dynamodb=new AWS.DynamoDB.DocumentClient();
   const {id} =event.pathParameters
   var msg;
 
   await dynamodb.delete({
-    TableName: "TodoTable",
+    TableName: TABLE_NAME,
     Key: {
       id: id, 
     },

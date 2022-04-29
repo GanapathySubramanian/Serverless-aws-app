@@ -3,6 +3,8 @@ const AWS=require('aws-sdk');
 
 const updateTodo = async (event) => {
   
+  const TABLE_NAME = process.env.ITEMS_DYNAMODB_TABLE;
+
   const dynamodb=new AWS.DynamoDB.DocumentClient();
 
   const { completed} = JSON.parse(event.body);  
@@ -10,7 +12,7 @@ const updateTodo = async (event) => {
 
 
   await dynamodb.update({
-    TableName:"TodoTable",
+    TableName:TABLE_NAME,
     Key:{id},
     UpdateExpression: 'set completed = :completed',
     ExpressionAttributeValues:{

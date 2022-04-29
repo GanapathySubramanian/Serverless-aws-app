@@ -1,16 +1,26 @@
 service: aws-serverless-todo-app
 frameworkVersion: '3'
 
+
+custom:
+  myStage: ${opt:stage, self:provider.stage}
+  settings:
+    dev:
+      ITEMS_DYNAMODB_TABLE: sls-basic-operations-items-dev
+    qa:
+      ITEMS_DYNAMODB_TABLE: sls-basic-operations-items-qa
+
 provider:
   name: aws
   runtime: nodejs14.x
   region: us-east-1
+  environment: ${self:custom.settings.${self:custom.myStage}}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - dynamodb:*
       Resource:
-        - arn:aws:dynamodb:us-east-1:895294974745:table/TodoTable
+        - arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.settings.${self:custom.myStage}.ITEMS_DYNAMODB_TABLE}
 
 functions:
   addTodo:
@@ -55,7 +65,7 @@ resources:
     TodoTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: TodoTable
+        TableName: ${self:custom.settings.${self:custom.myStage}.ITEMS_DYNAMODB_TABLE}
         BillingMode: PAY_PER_REQUEST
         AttributeDefinitions:
           - AttributeName: id
@@ -63,3 +73,4 @@ resources:
         KeySchema:
           - AttributeName: id
             KeyType: HASH
+

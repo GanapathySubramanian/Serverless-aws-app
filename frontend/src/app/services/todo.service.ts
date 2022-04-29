@@ -12,8 +12,6 @@ export class TodoService {
   todo:Todo={} as Todo;
   baseUrl='https://luhzrnprbf.execute-api.us-east-1.amazonaws.com/dev';
   listItems:Todo[]=[];
-  // private sourceSubject = new Subject<Todo[]>();
-  // sourceMessage = this.sourceSubject.asObservable();
   list:BehaviorSubject<Todo[]>=new BehaviorSubject<Todo[]>(this.listItems);
 
   constructor(private http:HttpClient) {
