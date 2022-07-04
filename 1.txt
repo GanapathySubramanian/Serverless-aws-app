@@ -1,0 +1,41 @@
+Part 1
+
+Create a node js application
+
+     1. create an endpoint called /file-upload
+
+     2. create an endpoint called /messages
+
+POST- /fileupload
+
+    if you upload the file the file must get stored in S3
+
+POST - /messages
+
+    if you send message using {message:"your message"}  the message should go to SQS
+
+    This NodeJS app must be containerized and it should run as a service in the ECS
+
+Part 2
+
+Create a Dynamo DB table called event
+
+EventID - partitionkey 
+
+EventData - Attribute
+
+Part3
+
+  Create a lambda function    
+
+    if s3 bucket is uploaded with a file the file name and size should be stored as event data into event table like
+
+    "a file named abc.txt with size 30 kb is uploaded"" and EVent ID should be filename
+
+    if a message reaches SQS the message should be stored as eventData and event id is messageID
+
+Part4
+
+    create a lambda function if invoked returns status 200 and all the rows in the event table as response and 
+    
+    Create an API Gateway to access the lambda function
